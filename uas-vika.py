@@ -52,3 +52,4 @@ if st.button('Proses'):
         predict = "Tingkat Kemiskinan Rendah"
     else:
         predict = "Tingkat Kemiskinan Tinggi"
+    st.write(predict)
