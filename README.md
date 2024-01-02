@@ -1,4 +1,5 @@
-![image](https://github.com/vikaf26/uas-d3/assets/149370346/cd2e89f1-d8ea-4d96-963e-65e341c77bb0)![image](https://github.com/vikaf26/uas-d3/assets/149370346/75f9ae8a-4248-4bdf-97f9-6b65fd1c1091)# Laporan Proyek Machine Learning
+## Laporan Proyek Machine Learning 
+
 ### Nama : Vika Fatnawati
 ### Nim : 211351148
 ### Kelas : Malam B
