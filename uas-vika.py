@@ -55,8 +55,6 @@ if st.button('Proses'):
         predict = "Tingkat Kemiskinan Tinggi"
     
 # Visualisasi Pohon Keputusan
-dot_data = export_graphviz(model, out_file=None, feature_names=model.feature_names_,
-                               class_names=model.classes_, filled=True, rounded=True,
-                               special_characters=True)
+dot_data = export_graphviz(model, out_file=None, filled=True, rounded=True, special_characters=True)
 graph = graphviz.Source(dot_data)
 st.graphviz_chart(graph)
