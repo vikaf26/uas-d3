@@ -44,16 +44,9 @@ prov_encoded = encoder_prov.transform([Provinsi])[0]
 
 predict = ''
 
-if st.button('Estimasi Berat Ikan'):
+if st.button('Proses'):
     predict = model.predict(
         [[prov_encoded,persentase_pm,lama_sekolah,pengeluaran_pk,
           IPM,UHH,sanitasi_layak,airminum_layak,TPT,TPAK,PDRB]]
     )
     st.write ('Klasifikasi Tingkat Kemiskinan : ', predict)
-
-# Visualisasi Pohon Keputusan
-    dot_data = export_graphviz(model, out_file=None, feature_names=model.feature_names_,
-                               class_names=model.classes_, filled=True, rounded=True,
-                               special_characters=True)
-    graph = graphviz.Source(dot_data)
-    st.graphviz_chart(graph)
