@@ -47,22 +47,24 @@ dataset: [Klasifikasi Tingkat Kemiskinan di Indonesia](https://www.kaggle.com/da
 Didalam dataset tersebut juga terdapat data yang:
 1. Null:
 
-<img width="115" alt="image" src="https://github.com/vikaf26/uas-d3/assets/149370346/6d63e0b9-3a34-4754-a7b0-bea377f05d3b">
+<img width="359" alt="image" src="https://github.com/vikaf26/uas-d3/assets/149370346/4b5e1a40-c138-4038-afad-f5961445aad2">
 
 2. Duplikat:
 
-![image](https://github.com/vikaf26/uas-d3/assets/149370346/e62c0fb5-e4ed-4264-bdce-c7b1d9ad6557)
+<img width="115" alt="image" src="https://github.com/vikaf26/uas-d3/assets/149370346/6d63e0b9-3a34-4754-a7b0-bea377f05d3b">
+
 
 ## EDA
 1. Klasifikasi Kemiskinan:
 
-![image](https://github.com/vikaf26/uas-d3/assets/149370346/8cbba71e-9f2a-42bb-8408-72f6ca528252)
+![image](https://github.com/vikaf26/uas-d3/assets/149370346/e62c0fb5-e4ed-4264-bdce-c7b1d9ad6557)
+
 
 didalam dataset terdapat sekitar 87% wilayah di indonesia dengan tingkat kemiskinan rendah dan 12% tinggi
 
 2. Top 10 Provinsi dengan jumlah kabupaten terbanyak di indonesia
-
-![image](https://github.com/vikaf26/uas-d3/assets/149370346/2a579366-07a7-4a29-87c1-98f5a28f2155)
+   
+![image](https://github.com/vikaf26/uas-d3/assets/149370346/8cbba71e-9f2a-42bb-8408-72f6ca528252)
 
 Jawa Timur menjadi provinsi yang memiliki kabupaten terbanyak di Indonesia diantara provinsi lainnya.
 
