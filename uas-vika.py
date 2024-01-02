@@ -9,7 +9,7 @@ model = pickle.load(open('d3_tingkat_kemiskinan.sav', 'rb'))
 
 st.title('Klasifikasi Tingkat Kemiskinan')
 
-# List provinsi
+#list provinsi
 provinsi_list = [
     'ACEH', 'SUMATERA UTARA', 'SUMATERA BARAT', 'RIAU', 'JAMBI',
     'SUMATERA SELATAN', 'BENGKULU', 'LAMPUNG', 'KEP. BANGKA BELITUNG',
@@ -20,9 +20,9 @@ provinsi_list = [
     'KALIMANTAN UTARA', 'SULAWESI UTARA', 'SULAWESI TENGAH',
     'SULAWESI SELATAN', 'SULAWESI TENGGARA', 'GORONTALO',
     'SULAWESI BARAT', 'MALUKU', 'MALUKU UTARA', 'PAPUA BARAT', 'PAPUA'
-]
+    ]
 
-col1, col2 = st.columns(2)
+col1,col2 = st.columns(2)
 
 with col1:
     Provinsi = st.selectbox("Pilih Provinsi:", provinsi_list)
@@ -31,7 +31,6 @@ with col1:
     pengeluaran_pk = st.number_input("Pengeluaran per Kapita Disesuaikan (Ribu Rupiah/Orang/Tahun)")
     IPM = st.number_input("Indeks Pembangunan Manusia")
     UHH = st.number_input("Umur Harapan Hidup (Tahun)")
-
 with col2:
     sanitasi_layak = st.number_input("Persentase rumah tangga yang memiliki akses terhadap sanitasi layak")
     airminum_layak = st.number_input("Persentase rumah tangga yang memiliki akses terhadap air minum layak")
@@ -43,31 +42,21 @@ encoder_prov = LabelEncoder()
 encoder_prov.fit(provinsi_list)
 prov_encoded = encoder_prov.transform([Provinsi])[0]
 
-# Display prediction result and decision tree in the sidebar
-st.sidebar.title("Hasil Prediksi")
 predict = ''
-if st.sidebar.button('Proses'):
-    # Validate and convert input values
-    validated_values = [
-        validate_input(persentase_pm), validate_input(lama_sekolah),
-        validate_input(pengeluaran_pk), validate_input(IPM),
-        validate_input(UHH), validate_input(sanitasi_layak),
-        validate_input(airminum_layak), validate_input(TPT),
-        validate_input(TPAK), validate_input(PDRB)
-    ]
 
-    # Check if any value is None (indicating invalid input)
-    if None in validated_values:
-        st.sidebar.error("Masukkan nilai numerik yang valid untuk semua input.")
+if st.button('Proses'):
+    predict = model.predict(
+        [[prov_encoded,persentase_pm,lama_sekolah,pengeluaran_pk,
+          IPM,UHH,sanitasi_layak,airminum_layak,TPT,TPAK,PDRB]]
+    )
+    if predict == 0:
+        predict = "Tingkat Kemiskinan Rendah"
     else:
-        predict = model.predict([validated_values])[0]
-        prediction_label = "Tingkat Kemiskinan Rendah" if predict == 0 else "Tingkat Kemiskinan Tinggi"
-        st.sidebar.success(f'Hasil Prediksi: {prediction_label}')
-
-# Visualisasi Pohon Keputusan in the sidebar
-dot_data = export_graphviz(model, out_file=None, filled=True, rounded=True, special_characters=True)
+        predict = "Tingkat Kemiskinan Tinggi"
+    
+# Visualisasi Pohon Keputusan
+dot_data = export_graphviz(model, out_file=None, feature_names=model.feature_names_,
+                               class_names=model.classes_, filled=True, rounded=True,
+                               special_characters=True)
 graph = graphviz.Source(dot_data)
-st.sidebar.graphviz_chart(graph)
-
-# Main content (you can keep this part as it is)
-st.write("Isi Utama Aplikasi Streamlit Anda di Sini.")
+st.graphviz_chart(graph)
