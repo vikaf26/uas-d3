@@ -46,8 +46,10 @@ predict = ''
 
 if st.button('Proses'):
     predict = model.predict(
-        [[prov_encoded,persentase_pm,lama_sekolah,pengeluaran_pk,IPM,UHH,sanitasi_layak,airminum_layak,TPT,TPAK,PDRB]]
+        [[prov_encoded, persentase_pm, lama_sekolah, pengeluaran_pk, IPM, UHH,
+          sanitasi_layak, airminum_layak, TPT, TPAK, PDRB]]
     )
+    print("Prediction:", predict)
     if predict == 0:
         predict = "Tingkat Kemiskinan Rendah"
     else:
