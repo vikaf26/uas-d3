@@ -49,7 +49,10 @@ if st.button('Proses'):
         [[prov_encoded,persentase_pm,lama_sekolah,pengeluaran_pk,
           IPM,UHH,sanitasi_layak,airminum_layak,TPT,TPAK,PDRB]]
     )
-    st.write ('Klasifikasi Tingkat Kemiskinan : ', predict)
+    if predict == 0:
+        predict = "Tingkat Kemiskinan Rendah"
+    else:
+        predict = "Tingkat Kemiskinan Tinggi"
     
 # Visualisasi Pohon Keputusan
 dot_data = export_graphviz(model, out_file=None, feature_names=model.feature_names_,
