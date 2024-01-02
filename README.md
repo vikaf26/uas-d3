@@ -195,3 +195,6 @@ dari total 155 data testing didapatkan hasil:
 
 ## Deployment
 
+[Link Aplikasi](https://uas-vika-d3.streamlit.app/)
+
+<img width="960" alt="image" src="https://github.com/vikaf26/uas-d3/assets/149370346/8f03a777-b767-491b-983c-3c1c6716c9ce">
